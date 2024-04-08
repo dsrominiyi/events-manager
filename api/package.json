@@ -1,0 +1,50 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "docker compose up -d --no-recreate && nest start --watch -b swc",
+    "clean:dev": "docker compose down",
+    "test": "yarn test:unit && yarn test:e2e",
+    "test:unit": "yarn run -T jest",
+    "test:e2e": "DB_URL=127.0.0.1:33031/ yarn run -T jest --config ./jest.config.e2e.js --runInBand",
+    "eslint": "eslint \"./**/*.{js,ts,jsx,tsx}\"",
+    "eslint:fix": "eslint --fix \"./**/*.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --check \"**/*.{js,ts}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,ts}\"",
+    "build": "nest build && sh postbuild.sh",
+    "build:docker": "docker build -t api .",
+    "start": "nest start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsrominiyi/events-manager.git"
+  },
+  "author": "Damilola Rominiyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsrominiyi/events-manager/issues"
+  },
+  "homepage": "https://github.com/dsrominiyi/events-manager#readme",
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "dotenv": "^16.4.5",
+    "mongodb": "^6.5.0",
+    "nestjs-zod": "^3.0.0",
+    "reflect-metadata": "^0.2.0",
+    "rxjs": "^7.8.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@nestjs/schematics": "^10.0.0",
+    "@nestjs/testing": "^10.0.0",
+    "@types/supertest": "^6.0.0",
+    "mongodb-memory-server": "^9.1.8",
+    "supertest": "^6.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "*"
+  }
+}

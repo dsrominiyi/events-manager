@@ -1,0 +1,24 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint \"./**/*.{js,ts,jsx,tsx}\"",
+    "eslint:fix": "eslint --fix \"./**/*.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --check \"**/*.{js,ts}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,ts}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsrominiyi/events-manager.git"
+  },
+  "author": "Damilola Rominiyi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsrominiyi/events-manager/issues"
+  },
+  "homepage": "https://github.com/dsrominiyi/events-manager#readme",
+  "dependencies": {
+    "mongodb": "^6.5.0"
+  }
+}

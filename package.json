@@ -1,0 +1,84 @@
+{
+  "name": "events-manager",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Damilola Rominiyi",
+  "license": "ISC",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsrominiyi/events-manager.git"
+  },
+  "homepage": "https://github.com/dsrominiyi/events-manager#readme",
+  "workspaces": {
+    "packages": [
+      "api",
+      "events",
+      "common"
+    ]
+  },
+  "scripts": {
+    "dev:api": "yarn workspace api dev",
+    "dev:events": "yarn workspace events dev",
+    "build": "yarn build:api && yarn build:events",
+    "build:api": "yarn workspace api build",
+    "build:events": "yarn workspace events build",
+    "build:docker": "docker compose build",
+    "clean:dev": "yarn workspace api clean:dev",
+    "start": "yarn clean:dev && yarn build && yarn build:docker && docker compose up",
+    "test": "yarn test:api && yarn test:events",
+    "test:api": "yarn workspace api test",
+    "test:events": "yarn workspace events test",
+    "eslint": "eslint --fix \"./**/*.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"**/*.{js,ts,jsx,tsx}\"",
+    "stylelint": "yarn workspace events stylelint --fix"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "stylelint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^13.2.4",
+    "@swc/cli": "^0.3.12",
+    "@swc/core": "^1.4.12",
+    "@swc/jest": "^0.2.36",
+    "@types/jest": "^27.4.1",
+    "@types/lodash": "^4",
+    "@types/node": "^17.0.25",
+    "@types/webpack-dev-server": "^4.7.2",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-next": "^14.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^29.7.0",
+    "lint-staged": "^13.1.0",
+    "postcss": "^8.4.38",
+    "postcss-styled-syntax": "^0.6.4",
+    "prettier": "^3.2.4",
+    "stylelint": "^16.1.0",
+    "stylelint-config-recess-order": "^4.4.0",
+    "stylelint-config-standard": "^36.0.0",
+    "tsconfig-paths-jest": "^0.0.1",
+    "tscpaths": "^0.0.9",
+    "typescript": "^5.4.4"
+  },
+  "packageManager": "yarn@4.0.2",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

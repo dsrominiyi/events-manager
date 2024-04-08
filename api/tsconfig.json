@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/api",
+    "noEmit": false,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "~test/*": ["test/*"]
+    },
+    "composite": true
+  },
+  "include": ["src", "test", "jest.config.e2e.js", "../common/src/types/_utils.d.ts"]
+}

@@ -1,0 +1,9 @@
+node_modules
+coverage
+
+dist
+.next
+next-env.d.ts
+
+.yarn
+yarn-error.log

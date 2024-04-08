@@ -1,0 +1,28 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "jsx": "preserve",
+    "paths": {
+      "@api/types/*": ["../api/src/types/*"],
+      "@common/*": ["../common/src/*"],
+      "~/*": ["src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true,
+    "allowJs": true
+  },
+  "references": [
+    {
+      "path": "../api"
+    }
+  ],
+  "include": ["src", "jest", ".next/types/**/*.ts", "../api/src/types", "../common"],
+  "exclude": ["node_modules"]
+}
