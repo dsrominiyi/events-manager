@@ -24,7 +24,6 @@ export class EventController {
   }
 
   @Put('/:id')
-  @HttpCode(204)
   public update(@Param('id') id: string, @Body() eventUpdate: EventUpdateDto) {
     return this.eventService.update(id, eventUpdate);
   }
